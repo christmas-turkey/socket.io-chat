@@ -1,0 +1,56 @@
+$borderRadius: 20px;
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    background: linear-gradient(25deg, rgb(252, 252, 252), rgb(202, 202, 202));
+    border-radius: $borderRadius;
+    width: 500px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .inputFields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputFields input {
+    background: transparent;
+    margin-top: 20px;
+    width: 70%;
+    border-bottom: 2px solid rgb(16, 16, 59);
+    height: 35px;
+
+    &:focus {
+        background: transparent;
+    }
+}
+
+.inputFields input::-webkit-input-placeholder {
+    color: rgb(16, 16, 59);
+}
+
+@media screen and (max-width: 600px) {
+    
+    .wrapper {
+        width: 100%;
+        height: 70vh;
+    }
+
+    .inputFields input {
+        width: 90%;
+    } 
+
+    .btn {
+        width: 80%;
+    }
+}

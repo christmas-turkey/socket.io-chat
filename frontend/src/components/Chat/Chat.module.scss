@@ -1,0 +1,159 @@
+$borderRadius: 20px;
+$wrapperWidth: 700px;
+$wrapperHeight: 600px;
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    background: transparent;
+    border-radius: $borderRadius;
+    width: $wrapperWidth;
+    height: $wrapperHeight;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-areas: 'users messages messages'
+                         'users sendMsg sendMsg';
+}
+
+.usersBlock {
+    min-width: 150px;
+    min-height: 200px;
+    background-color: #293B5F;
+    border-top-left-radius: $borderRadius;
+    border-bottom-left-radius: $borderRadius;
+    grid-area: users;
+    padding: 30px;
+    overflow: auto;
+}
+
+.usersBlock .online {
+    color: #cdcad6;
+}
+
+.usersBlock .user {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.usersBlock .user::before {
+    content: '●';
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: rgb(121, 235, 28);
+}
+
+
+.messages {
+    background-color: #47597E;
+    border-top-right-radius: $borderRadius;
+    grid-area: messages;
+    padding: 20px;
+    min-height: 250px;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+    height: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #787A91;
+    border-radius: $borderRadius;
+}
+
+.messages > .msg {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messages .myMsg {
+    justify-content: flex-end;
+}
+
+.messages .myMsg .msgText {
+    background-color: #6f83aa;
+}
+
+.messages .msgBlock {
+    width: 40%;
+}
+
+.messages .msgText {
+    border-radius: $borderRadius;
+    background-color: #DBE6FD;
+    word-break: break-all;
+    margin-top: 20px;
+    min-height: 45px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 0.7em;
+}
+
+.messages .msgAuthor {
+    font-size: 0.7em;
+    color: #cdcad6;
+    margin-top: 5px;
+}
+
+.sendMsg {
+    padding: 20px;
+    background-color: #B2B1B9;
+    border-bottom-right-radius: $borderRadius;
+    grid-area: sendMsg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sendMsg textarea {
+    width: 90%;
+    resize: none;
+    border-radius: $borderRadius;
+    padding: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .usersBlock, .messages,
+    .sendMsg {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .messages .msgBlock {
+        width: 100%;
+    }
+
+    .messages {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .usersBlock {
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
+    }
+
+    .sendMsg {
+        border-bottom-left-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
+    }
+
+    .wrapper {
+        min-height: 700px;
+        grid-template-areas: 'users users users'
+                             'messages messages messages'
+                             'sendMsg sendMsg sendMsg';
+    }
+}
